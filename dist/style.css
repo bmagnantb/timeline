@@ -885,15 +885,17 @@ main {
     padding: 0 .25em; }
 
 #bw + label {
-  color: #aaa; }
-#bw:checked + label {
   color: #000;
+  opacity: .5; }
+#bw:checked + label {
+  opacity: 1;
   border: 1px solid #444; }
 
 #blue + label {
-  color: #6FB7DE; }
-#blue:checked + label {
   color: #6FB7DE;
+  opacity: .5; }
+#blue:checked + label {
+  opacity: 1;
   border: 1px solid #6FB7DE; }
 #blue:checked ~ .post {
   font-size: .9em; }

@@ -84,20 +84,22 @@ main {
 }
 #bw {
     & + label {
-        color: #aaa;
+        color: #000;
+        opacity: .5;
     }
     &:checked + label {
-        color: #000;
+        opacity: 1;
         border: 1px solid #444;
     }
 }
 #blue {
     & + label {
         color: $blue-color;
+        opacity: .5;
     }
     &:checked {
         & + label {
-            color: $blue-color;
+            opacity: 1;
             border: 1px solid $blue-color;
         }
         & ~ .post {
