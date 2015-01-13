@@ -990,8 +990,7 @@ main {
       border-left: .5em solid #B9DCF0;
       -webkit-border-radius: 0;
               border-radius: 0;
-      margin-left: 3.25em; }
-    #blue:checked ~ .post .post-margin {
+      margin-left: 3.25em;
       padding-bottom: 1.5em; }
     #blue:checked ~ .post .post-content {
       border: 0;
