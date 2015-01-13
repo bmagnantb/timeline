@@ -41,6 +41,10 @@
 }
 @include gridify(2, 400);
 @include gridify(4, 600);
+$blue-color: #6FB7DE;
+$blue-color2: #2A92C9;
+$blue-color3: #B9DCF0;
+$blue-color4: #72CCFC;
 /**
  * GENERAL
  */
@@ -50,8 +54,9 @@ img {
 }
 body {
     transition: opacity .25s ease;
-    padding: 1em 2em;
+    padding: .25em 2em 1em;
     font-family: "Lato";
+    text-align: right;
 }
 p {
     max-width: 30em;
@@ -59,15 +64,81 @@ p {
     margin-right: 0;
 }
 h1 {
-	font-size: 2em;
+    font-size: 2em;
 }
 main {
     margin: 0 auto;
     max-width: 40em;
+    clear: right;
+    text-align: right;
+    position: relative;
+    & > span {
+        font-size: .8em;
+    }
+    & > input {
+        display: none;
+    }
+    & > label {
+        font-size: .8em;
+        padding: 0 .25em;
+    }
+}
+#minimalist {
+    & + label {
+        color: #aaa;
+    }
+    &:checked + label {
+        color: #000;
+        border: 1px solid #444;
+    }
+}
+#blue {
+    & + label {
+        color: $blue-color;
+    }
+    &:checked {
+        & + label {
+            color: $blue-color;
+            border: 1px solid $blue-color;
+        }
+        & ~ .post {
+            font-size: .9em;
+            .post-info {
+                color: $blue-color;
+                background-color: #fff;
+            }
+            .post-content {
+                color: #fff;
+                background-color: $blue-color;
+            }
+            h1 {
+                color: #fff;
+                font-size: 1.5em;
+            }
+            .line {
+                border-left: .5em solid $blue-color3;
+            }
+        }
+        & ~ .post:nth-of-type(2n) {
+            .post-content {
+                background-color: $blue-color2;
+            }
+            .post-info {
+                color: $blue-color2;
+            }
+            .line {
+                border-left: .5em solid $blue-color4;
+            }
+        }
+    }
 }
 .post {
     position: relative;
     margin-bottom: 1.5em;
+    text-align: left;
+    &:first-of-type {
+        margin-top: 1em;
+    }
 }
 .timeline {
     display: none;
@@ -91,62 +162,61 @@ main {
     border-top-right-radius: .3em;
 }
 .post-time, .timeline-icon {
-	vertical-align: top;
-	display: inline-block;
-	margin: 0 .5em;
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 .5em;
 }
 .post-time {
-	position: relative;
+    position: relative;
 }
 .timestamp {
     font-size: 1.5em;
 }
 .date {
-	position: absolute;
-	font-size: .8em;
-	transform: translate(5%,-50%);
+    position: absolute;
+    font-size: .8em;
+    transform: translate(5%, -50%);
 }
 .post-content {
     padding: 1em 1.5em;
     border-bottom-left-radius: .3em;
     border-bottom-right-radius: .3em;
 }
-
 @media (min-width: 35em) {
-	.post-info, .post-content {
-		border-radius: .3em;
-	}
-	.post-info {
-		position: absolute;
-		width: 5em;
-		padding: .25em 0 1em;
-		//border: 1px solid #000;
-		border: 0;
-		z-index: 1;
-		background-color: #444;
-		color: #fff;
-		//font-family: "Merriweather Sans";
-		text-align: center;
-	}
-	.timeline-icon {
-		display: block;
-	}
-	.timestamp, .date {
-		width: 100%;
-	}
-	.timestamp {
-		font-size: 1.3em;
-	}
-	.date {
-		font-size: .7em;
-		transform: translateY(-50%);
-	}
-	.line {
-		margin-left: 2.25em;
-		border-left: .5em solid #333;
-		border-bottom-left-radius: .9em;
-	}
-	.post-content {
-		margin-left: 3em;
-	}
+    .post-info, .post-content {
+        border-radius: .3em;
+    }
+    .post-info {
+        position: absolute;
+        width: 5em;
+        padding: .25em 0 1em;
+        //border: 1px solid #000;
+        border: 0;
+        z-index: 1;
+        background-color: #444;
+        color: #fff;
+        //font-family: "Merriweather Sans";
+        text-align: center;
+    }
+    .timeline-icon {
+        display: block;
+    }
+    .timestamp, .date {
+        width: 100%;
+    }
+    .timestamp {
+        font-size: 1.3em;
+    }
+    .date {
+        font-size: .7em;
+        transform: translateY(-50%);
+    }
+    .line {
+        margin-left: 2.25em;
+        border-left: .5em solid #444;
+        border-bottom-left-radius: .9em;
+    }
+    .post-content {
+        margin-left: 3em;
+    }
 }
